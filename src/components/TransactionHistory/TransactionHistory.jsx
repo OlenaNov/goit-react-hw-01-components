@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+
+import css from 'components/TransactionHistory/TransactionHistory.module.css';
+import toUpperCaseFirstLetter from 'components/TransactionHistory/toUpperCaseFirstLetter.js';
+
 
 export default function TransactionHistory({ type, amount, currency }) {
     return (
-    <React.Fragment>
-      <td>{type}</td>
-      <td>{amount}</td>
-      <td>{currency}</td>
-    </React.Fragment>
+    <>
+      <td className={css["td-text"]}>{toUpperCaseFirstLetter(type)}</td>
+      <td className={css["td-text"]}>{amount}</td>
+      <td className={css["td-text"]}>{currency}</td>
+    </>
     );
 };
 

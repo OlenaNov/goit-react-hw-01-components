@@ -1,14 +1,16 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Statistics from './Statistics';
+import css from 'components/Statistics/Statistics.module.css';
+import createColor from 'components/Statistics/createColor.js'
 
 export default function StatisticsList({ title, stats }) {
     return (
-        <section class="statistics">
-        {title && <h2 class="title">{title}</h2>}
-        <ul class="stat-list">
+        <section className={css.statistics}>
+        {title && <h2 className={css.title}>{title.toUpperCase()}</h2>}
+        <ul className={css["stat-list"]}>
         {stats.map(state => (
-            <li class="item" key={state.id}>
+            <li className={css.item} style={{background: createColor()}} key={state.id}>
                 <Statistics 
                     label={state.label}
                     percentage={state.percentage}
@@ -17,11 +19,12 @@ export default function StatisticsList({ title, stats }) {
         ))}
         </ul>
       </section>
-    )
+    );
 };
 
-// StatisticsList.propTypes = {
-//     title: PropTypes.string,
-//     state: PropTypes.arrayOf(PropTypes.object.isRequired,).isRequired,
-
-// }
+StatisticsList.propTypes = {
+    title: PropTypes.string,
+    stats: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,).isRequired,
+};

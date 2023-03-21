@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+
+import css from 'components/FriendList/Friend.module.css';
 
 export default function Friends({ avatar, name, isOnline }) {
     return (
-        <React.Fragment>
-            <span class="status">{isOnline}</span>
-            <img class="avatar" src={avatar} alt="User avatar" width="48" />
-            <p class="name">{name}</p>
-        </React.Fragment>
+        <>
+            <span className={`${css.status} ${css[isOnline]}`}>{isOnline}</span>
+            <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+            <p className={css.name}>{name}</p>
+        </>
     );
 };
 

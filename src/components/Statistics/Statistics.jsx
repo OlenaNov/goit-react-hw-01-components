@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+
+import css from 'components/Statistics/Statistics.module.css';
 
 export default function Statistics({ label, percentage }) {
     return (
-        <React.Fragment>
-            <span class="label">{label}</span>
-            <span class="percentage">{percentage}%</span>
-        </React.Fragment>
+        <>
+            <span className={css.label}>{label}</span>
+            <span className={css.percentage}>{percentage}%</span>
+        </>
     );
 };
 
